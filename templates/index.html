@@ -1,0 +1,32 @@
+{% extends "base_index.html" %}
+
+
+{% block movie_select %}
+{% for id, name in movie_ids_names %}
+    <option value="{{id}}">{{id}}. &nbsp;{{name}}</option>
+{% endfor %}
+{% endblock %}
+
+{% block genre_select %}
+{% for id, name in genre_ids_names %}
+    <option value="{{id}}">{{name}}</option>
+{% endfor %}
+{% endblock %}
+
+{% block director_select %}
+{% for id, name in director_ids_names %}
+    <option value="{{id}}">{{name}}</option>
+{% endfor %}
+{% endblock %}
+
+{% block writer_select %}
+{% for id, name in writer_ids_names %}
+    <option value="{{id}}">{{name}}</option>
+{% endfor %}
+{% endblock %}
+
+{% block star_select %}
+{% for id, name in star_ids_names %}
+    <option value="{{id}}">{{name}}</option>
+{% endfor %}
+{% endblock %}

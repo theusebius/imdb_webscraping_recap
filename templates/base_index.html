@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="../static/base_styles.css">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300&display=swap" rel="stylesheet">
+    <title>Погода</title>
+</head>
+<body>
+    <div class="title-div">
+        <h1>IMDb. Top 250 Movie Recap.</h1>
+    </div>
+    
+    <div class="center main">
+
+        <div class="main-container-row">
+            <div class="category-container">
+                <div class="title-block">
+                    Director recap
+                </div>
+                <select class="center" id="director_select">
+                    <option selected="" value="none">--</option>
+                    {% block director_select %}
+                    {% endblock %}
+                </select>
+                <button class="category-button" onclick="getCategoryRecap('director')">Go</button>
+            </div>
+
+
+            <div class="category-container">
+                <div class="title-block">
+                    Writer recap
+                </div>
+                <select class="center" id="writer_select">
+                    <option selected="" value="none">--</option>
+                    {% block writer_select %}
+                    {% endblock %}
+                </select>
+                <button class="category-button" onclick="getCategoryRecap('writer')">Go</button>
+            </div>
+            
+
+            <div class="category-container">
+                <div class="title-block">
+                    Star recap
+                </div>
+                <select class="center" id="star_select">
+                    <option selected="" value="none">--</option>
+                    {% block star_select %}
+                    {% endblock %}
+                </select>
+                <button class="category-button" onclick="getCategoryRecap('star')">Go</button>
+            </div>
+        </div>
+    
+        <div class="recap-button-div">
+            <button class="recap-button" onclick="getFullRecap()">
+                Full Recap
+            </button>
+        </div>
+    </div>
+			  
+		  
+    <script>
+        function getCategoryRecap(category) {
+            const category_select = document.getElementById(`${category}_select`);
+            window.location.href = `http://localhost:5000/${category}/${category_select.value}`;
+        }
+
+        function getFullRecap() {
+            window.location.href = `http://localhost:5000/full_recap`;
+        }
+    </script>
+</body>
+</html>

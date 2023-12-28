@@ -1,0 +1,14 @@
+{% extends "base_full_recap.html" %}
+
+
+{% block unweighted_top %}
+{% for i, title, rating in unweighted_rating_and_scores %}
+    <li>{{i}}. &nbsp;{{title}} ({{rating}})</li>
+{% endfor %}
+{% endblock %}
+
+{% block weighted_top %}
+{% for i, title, rating in weighted_rating_and_scores %}
+    <li>{{i}}. &nbsp;{{title}} ({{rating}})</li>
+{% endfor %}
+{% endblock %}

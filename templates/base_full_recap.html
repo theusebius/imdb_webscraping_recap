@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="../static/recap_styles.css">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300&display=swap" rel="stylesheet">
+    <title>Погода</title>
+</head>
+<body>
+    <div class="name-div">
+        <h1>Full Recap.</h1>
+    </div>
+    <div class="center main">
+        <div class="info-block">
+            <p>
+                IMDb uses weighted ratings.<br>
+                If ratings were unweighted,<br>
+                <span class="negativ">how would it change</span> the top-250?
+            </p>
+        </div>
+        <div class="main-container-two-cols">
+            <div class="info-panel info-panel-left">
+                <div class="info-block">
+                    <p>
+                        Unweighted top
+                    </p>
+                    <ul>
+                        {% block unweighted_top %}
+                        {% endblock %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-panel info-panel-right">
+                <div class="info-block">
+                    <p>
+                        Current top
+                    </p>
+                    <ul>
+                        {% block weighted_top %}
+                        {% endblock %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="name-div">
+        <h2>Genres</h2>
+    </div>
+    <div class="center main">
+        <div class="main-container-two-cols">
+            <div class="info-block">
+                <img src="{{ url_for('static', filename=genre_dist_svg) }}" alt="Plot">
+            </div>
+            <div class="info-block">
+                <img src="{{ url_for('static', filename=genre_rating_svg) }}" alt="Plot">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
